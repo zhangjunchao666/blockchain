@@ -51,7 +51,7 @@ public class RSACoder {
         //甲方私钥
         RSAPrivateKey privateKey = (RSAPrivateKey) keyPair.getPrivate();
         //将密钥存储在map中
-        Map<String, Object> keyMap = new HashMap<String, Object>();
+        Map<String, Object> keyMap = new HashMap<String, Object>(16);
         keyMap.put(PUBLIC_KEY, publicKey);
         keyMap.put(PRIVATE_KEY, privateKey);
         return keyMap;

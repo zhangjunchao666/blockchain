@@ -21,7 +21,7 @@ import java.util.Map;
  * @date 2019/12/6
  */
 @RestController
-public class AsymmetricEncryption {
+public class AsymmetricEncryption {//非对称加密
 
     @PostMapping("asymmetricEncryption")
     public Object asymmetricEncryption(String data) throws Exception {
@@ -34,7 +34,6 @@ public class AsymmetricEncryption {
         byte[] publicKey = RSACoder.getPublicKey(keyMap);
         //私钥
         byte[] privateKey = RSACoder.getPrivateKey(keyMap);
-
         // 公钥
         String pubKey = Base64.encodeBase64String(publicKey);
         // 私钥
