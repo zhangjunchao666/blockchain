@@ -1,6 +1,7 @@
 package com.hndfsj.blockchain.newblockchain.common;
 
 import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
 import com.hndfsj.blockchain.newblockchain.bean.Block;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -9,12 +10,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 /**
- * <pre>
  * TODO：第一个链
- * </pre>
  *
  * @author zhangjunchao
  * @date 2019/12/5
@@ -23,15 +23,15 @@ import java.util.List;
 public class FirstChain {
 
     // 链
-    public static ArrayList<Block> blockchain = new ArrayList<Block>();
+    public static ArrayList<Block> blockchain = new ArrayList<>();
 
     // 挖矿困难度  比特币：10个0 ，0代表挖矿困难度
-    private static int difficulty = 5;
+    private static int difficulty = 4;
 
 
     // 创世区块
     @GetMapping("blockchain")
-    public List<String> blockchain(){
+    public Object blockchain(){
         // 将我们的块添加到链中
         blockchain.add(new Block("我是1号创世区块", "0"));
         System.out.println("试着生成1号创世区块");
@@ -43,10 +43,11 @@ public class FirstChain {
             String blockchainJson = new GsonBuilder().setPrettyPrinting().create().toJson(blockchain);
             System.out.println(blockchainJson);
 
-            ArrayList<String> list = new ArrayList<>();
-            list.add(isChainValid);list.add(blockchainJson);
+            HashMap<String, Object> map = new HashMap<>(16);
+            map.put("success", isChainValid);
+            map.put("blockchainJson", blockchainJson);
 
-            return list;
+            return map;
 
         }else {
             String isChainValid = "创世区块生成失败!" ;
@@ -57,9 +58,9 @@ public class FirstChain {
 
     }
 
-    // 添加新的区块
+    // 挖矿添加新的区块
     @PostMapping("addBlockchain")
-    public List<String> addBlockchain(){
+    public Object addBlockchain(){
 
         blockchain.add(new Block("我是第".concat(String.valueOf(blockchain.size()+1)).concat("号区块"), blockchain.get(blockchain.size() - 1).hash));
         System.out.println("试着开采" + String.valueOf(blockchain.size()) + "号区块");
@@ -73,15 +74,16 @@ public class FirstChain {
             String isChainValid = "挖矿成功!" ;
 
             ArrayList<String> list = new ArrayList<>();
-            list.add(isChainValid);list.add(blockchainJson);
+            list.add(isChainValid);
+            list.add(blockchainJson);
 
             return list;
 
         }else {
             String isChainValid = "挖矿失败!" ;
-            ArrayList<String> list = new ArrayList<>();
-            list.add(isChainValid);
-            return list;
+            ArrayList<String> errorList = new ArrayList<>();
+            errorList.add(isChainValid);
+            return errorList;
         }
     }
 

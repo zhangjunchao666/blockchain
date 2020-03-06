@@ -2,20 +2,15 @@ package com.hndfsj.blockchain.newblockchain.common;
 
 import com.hndfsj.blockchain.newblockchain.utils.RSACoder;
 import org.apache.tomcat.util.codec.binary.Base64;
-import org.springframework.stereotype.Component;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 /**
- * <pre>
  * TODO：
- * </pre>
  *
  * @author zhangjunchao
  * @date 2019/12/6
@@ -51,14 +46,14 @@ public class AsymmetricEncryption {//非对称加密
         // "解密后的数据："
         String decodeText = new String(decode1);
 
-        ArrayList<Object> list = new ArrayList<>();
-        list.add("需要加密的数据：" + data);
-        list.add("公钥：" + pubKey);
-        list.add("私钥：" + priKey);
-        list.add("加密后的密文："+privateText);
-        list.add("用公钥解密后的数据：" + decodeText);
+        HashMap<String, Object> map = new HashMap<>(16);
+        map.put("需要加密的数据：",data);
+        map.put("公钥：", pubKey);
+        map.put("私钥：", priKey);
+        map.put("加密后的密文：", privateText);
+        map.put("用公钥解密后的数据：", decodeText);
 
-        return list;
+        return map;
     }
 
 

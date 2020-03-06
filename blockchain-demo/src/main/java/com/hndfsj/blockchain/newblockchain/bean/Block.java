@@ -27,7 +27,7 @@ public class Block {
     /**
      * 工作量证明，计算正确hash值的次数
      */
-    public int nonce;
+    private int nonce;
 
 
 

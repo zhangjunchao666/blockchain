@@ -5,6 +5,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import tk.mybatis.spring.annotation.MapperScan;
 
+/**
+ * @author zhangjunchao
+ */
 @MapperScan(basePackages = "com.hndfsj.blockchain.**.mapper")
 @EnableTransactionManagement
 @SpringBootApplication

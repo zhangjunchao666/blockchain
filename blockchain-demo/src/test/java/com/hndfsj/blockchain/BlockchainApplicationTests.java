@@ -1,5 +1,7 @@
 package com.hndfsj.blockchain;
 
+import com.alibaba.fastjson.JSON;
+import com.hndfsj.blockchain.newblockchain.bean.Wallet;
 import com.hndfsj.blockchain.newblockchain.utils.RSACoder;
 import org.apache.tomcat.util.codec.binary.Base64;
 import org.junit.Test;
@@ -9,6 +11,12 @@ import java.util.Map;
 
 @SpringBootTest
 public class BlockchainApplicationTests {
+    
+    @Test
+    public void testWallet(){
+        Wallet wallet = Wallet.generateWallet();
+        System.out.println(JSON.toJSON(wallet));
+    }
 
 
 
@@ -92,7 +100,7 @@ public class BlockchainApplicationTests {
 
 
 
-    public void br(){
+    private static void br(){
         System.out.println();
     }
 

@@ -1,9 +1,7 @@
 package com.hndfsj.blockchain.newblockchain.utils;
 
 /**
- * <pre>
  * TODO：
- * </pre>
  *
  * @author zhangjunchao
  * @date 2019/12/6
