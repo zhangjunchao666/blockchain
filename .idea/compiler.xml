@@ -13,6 +13,7 @@
       <module name="blockchain-demo" target="1.8" />
       <module name="demo" target="1.8" />
       <module name="hndfsj-blockchain" target="1.8" />
+      <module name="websocket-demo" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
@@ -20,6 +21,7 @@
       <module name="blockchain-demo" options="" />
       <module name="demo" options="" />
       <module name="hndfsj-blockchain" options="" />
+      <module name="websocket-demo" options="-parameters" />
     </option>
   </component>
 </project>

@@ -10,6 +10,7 @@
         <option value="$PROJECT_DIR$/hndfsj-blockchain/pom.xml" />
         <option value="$PROJECT_DIR$/demo/pom.xml" />
         <option value="$PROJECT_DIR$/blockchain-demo/pom.xml" />
+        <option value="$PROJECT_DIR$/websocketdemo/pom.xml" />
       </list>
     </option>
   </component>
